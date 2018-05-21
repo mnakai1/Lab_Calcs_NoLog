@@ -1,4 +1,4 @@
-import sys
+from sys import exit
 
 def UV_exposuretimecalc():
 	flux = float(input('What is the current reading on the detector? Detector units should be in middle position.\n')) / 100
@@ -12,14 +12,14 @@ def platecellcount_nonadjusted():
 	whatwewant = input('How many total cells do we want in the end per mL?\n')
 	finalvol = float(whatwewant) / (float(whatwehavenotadjusted)/2)
 	print(finalvol)
-	
+
 def platecellcount_adjusted():
 	whatwehaveadjusted = input('What was the cell count after trypan blue adjustment per mL?\n')
 	whatwewant = input('How many total cells do we want in the end per mL?\n')
 	finalvol = float(whatwewant) / float(whatwehaveadjusted)
 	print(finalvol)
 
-	
+
 if __name__ == '__main__':
 	
 	while True:
@@ -41,7 +41,7 @@ if __name__ == '__main__':
 				print('***I\'m not sure how you managed to get this error message. \nError details: ', localerr, 'n')
 			except:
 				print('***Unexpected error')
-		
+
 		elif mainchoice == 'u' or mainchoice == 'U':
 			try:
 				UV_exposuretimecalc()
@@ -49,7 +49,7 @@ if __name__ == '__main__':
 				print('***Unexpected error')
 		else:
 			print('Invalid input, try again')
-		
+
 		#Asks the user if they want to do another calculation or close the program
 		exitinput = input('Do another calculation? y/n: ')
 		if exitinput.lower() == 'n':
@@ -60,5 +60,5 @@ if __name__ == '__main__':
 				break
 		else:
 			pass
-	
+
 	sys.exit()
